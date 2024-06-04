@@ -15,6 +15,9 @@ function App() {
       
       let number = +numero; //converte o valor de numero para inteiro
 
+      if(isNaN(number))
+        number = 0;
+
       calculaDivisoresApi(number).then(
           (dados) => {
             if(dados.status == true){
@@ -29,6 +32,7 @@ function App() {
 
             }else{
               setMostrarResultado(false)
+              setNumero('')
               alert(dados?.message)
             }   
             
